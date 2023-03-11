@@ -2,9 +2,9 @@ import java.math.BigDecimal;
 
 public abstract class Funcionario{
 
-        private int codigo;
-        private String nome;
-        private BigDecimal salarioBase;
+        protected int codigo;
+        protected String nome;
+        protected BigDecimal salarioBase ;
 
         public Funcionario(String nome, int codigo, BigDecimal salarioBase) {
             this.nome = nome;
@@ -30,16 +30,12 @@ public abstract class Funcionario{
         return salarioBase;
     }
 
-    public void setSalarioBase(BigDecimal salarioBase) {
-        this.salarioBase = salarioBase;
-    } 
-
     public abstract BigDecimal calculaSalario();
 
-    public abstract String converterParaTexto();
-    
+    @Override
+    public abstract String toString();
     
 
-       
+    
         
 }

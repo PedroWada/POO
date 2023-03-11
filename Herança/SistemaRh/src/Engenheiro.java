@@ -4,7 +4,7 @@ public class Engenheiro extends Funcionario{
 
     private String departamento;
     private int crea;
-
+    private BigDecimal adicao = new BigDecimal(0.5);
 
 
     public Engenheiro(String nome, int codigo, BigDecimal salarioBase, String departamento, int crea) {
@@ -26,14 +26,14 @@ public class Engenheiro extends Funcionario{
         this.crea = crea;
     }
 
-    
-    public BigDecimal calculaSalario(BigDecimal salario){
-        return salario.add(salario.multiply(0.5));
-    }
-
     @Override
-    public String converterParaTexto() {
-        return "Engenheiro   "+"Nome:" + nome + "|" + "Codigo do funcionário:" + codigo + "|" + "Salário:" + salarioBase + "|"  + "Departamento:" + departamento + "|" + "Crea:" + crea;
+    public BigDecimal calculaSalario() {
+        return super.salarioBase.add(salarioBase.multiply(adicao));
     }
     
+ @Override
+ public String toString() {
+     return "Engenheiro   "+"Nome:" + nome + "|" + "Codigo do funcionário:" + codigo + "|" + "Salário:" + calculaSalario() + "|" 
+      + "Departamento:" + departamento + "|" + "Crea:" + crea;
+ }
 }
